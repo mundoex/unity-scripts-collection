@@ -10,13 +10,13 @@ public class GridGenerator : MonoBehaviour
     void Start()
     {
         GameObject gridObject = new GameObject("Grid");
-        for (int i = 0; i < rows; i++)
+        for (int i = 0; i < columns; i++)
         {
             GameObject rowObject = new GameObject("Row-" + i);
-            
-            for (int j=0; j < columns; j++)
+
+            for (int j = 0; j < rows; j++)
             {
-                GameObject tile = Instantiate(tilePrefab, new Vector3(i * spacing, 0, j * spacing), Quaternion.identity);
+                GameObject tile = Instantiate(tilePrefab, new Vector3(j * spacing, 0, -i * spacing), Quaternion.identity);
                 tile.name = $"Cell-({i},{j})";
                 tile.transform.SetParent(rowObject.transform);
             }
